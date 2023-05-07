@@ -101,61 +101,43 @@
             <hr>
             <h3>Q9:- Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second</h3>
                     
-            <div class="container digital">
-                <div class="clock">
-                    <span id="hours">12</span>
-                    <span>:</span>
-                    <span class="minutes">60</span>
-                    <span>:</span>
-                    <span class="seconds">60</span>
-                    <span id="am-or-pm">AM</span>
-                </div>
+            <div class="container digital" id="time">
             </div>
             <br>
             <pre class="answer">Ans:-
-                function updateTime(){
-                  var dateTime = new Date();
-                  var hours = dateTime.getHours();
-                  var minutes = dateTime.getMinutes();
-                  var seconds = dateTime.getSeconds();
-                  var am_or_pm = document.getElementById("am-or-pm")
-                
-                  if(hours>=12){
-                    am_or_pm.innerHTML = "PM";
-                  }else{
-                    am_or_pm.innerHTML = "AM";
-                  }
-                   
-                
-                  if(hours > 12){
-                    hours = hours -12;
-                  }
-                
-                  document.getElementById("hours").innerHTML = hours;
-                  document.getElementById("minutes").innerHTML = minutes;
-                  document.getElementById("seconds").innerHTML = seconds;
-                
-                }
-                setInterval(updateTime,1000);</pre>
+               
+setInterval(myFunction, 1000); 
+function myFunction() {
 
+  var DateObj = new Date();
+  var hour = DateObj.getHours();
+  var minute = DateObj.getMinutes();
+  var seconds = DateObj.getSeconds();
+  
+  if (hour >= 12) {
+   hour = hour - 12;
+  }
 
-                
+ if (hour < 10) {
+   hour = "0" + hour;
+ }
 
+ if (minute < 10) {
+   minute = "0" + minute;
+ }
 
+ if (seconds < 10) {
+   seconds = "0" + seconds;
+ }
 
+ document.getElementById("time").innerText = `${hour} : ${minute} :${seconds}`;
+ 
+}</pre>
+                <hr>
+                <h3>Q10:-Guess the number game.</h3>
+                <a href="./index1.html">Play Game</a>
 
-
-
-
-
-
-
-
-
-
-
-   
+  
 </body>
-
 <script src="./myscript.js"></script>
 </html>
