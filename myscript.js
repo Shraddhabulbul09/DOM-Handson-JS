@@ -40,30 +40,58 @@ function direction() {
 
 //clock
 
-function updateTime(){
-  var dateTime = new Date();
-  var hours = dateTime.getHours();
-  var minutes = dateTime.getMinutes();
-  var seconds = dateTime.getSeconds();
-  var am_or_pm = document.getElementById("am-or-pm")
+// function updateTime(){
+//   var dateTime = new Date();
+//   var hours = dateTime.getHours();
+//   var minutes = dateTime.getMinutes();
+//   var seconds = dateTime.getSeconds();
+//   var am_or_pm = document.getElementById("am-or-pm")
 
-  if(hours>=12){
-    am_or_pm.innerHTML = "PM";
-  }else{
-    am_or_pm.innerHTML = "AM";
-  }
+//   if(hours>=12){
+//     am_or_pm.innerHTML = "PM";
+//   }else{
+//     am_or_pm.innerHTML = "AM";
+//   }
    
 
-  if(hours > 12){
-    hours = hours -12;
+//   if(hours > 12){
+//     hours = hours -12;
+//   }
+
+//   document.getElementById("hours").innerHTML = hours;
+//   document.getElementById("minutes").innerHTML = minutes;
+//   document.getElementById("seconds").innerHTML = seconds;
+
+// }
+// setInterval(updateTime,1000);
+
+setInterval(myFunction, 1000); 
+ function myFunction() {
+
+   var DateObj = new Date();
+   var hour = DateObj.getHours();
+   var minute = DateObj.getMinutes();
+   var seconds = DateObj.getSeconds();
+   
+   if (hour >= 12) {
+    hour = hour - 12;
+   }
+
+  if (hour < 10) {
+    hour = "0" + hour;
   }
 
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
 
-}
-setInterval(updateTime,1000);
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  document.getElementById("time").innerText = `${hour} : ${minute} :${seconds}`;
+  
+ }
 
 
 
